@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+ADD package.json .
+RUN npm install
+
+# COPY . . #NO NECESSITY BECAUSE USING VOLUMES, BUT ALSO NO BAD TO USE
+
+CMD ["npm", "run", "start"]
+
+# docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <imageid>
